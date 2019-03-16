@@ -1,11 +1,12 @@
-#include <chrono> // time in milliseconds
+#include <chrono> // system_clock::now, time_since_epoch
 #include <math.h> // sqrt, log
 
 #include "JavaRandom.hpp"
 
-void JavaRandom::Random(void){ // TODO time in milliseconds using chrono
+void JavaRandom::Random(void){
 	using namespace std::chrono;
-	this->seed = 0;
+	milliseconds ms = duration_cast<milliseconds>(system_clock::now().time_since_epoch());
+	this->seed = ms.count();
 };
 
 void JavaRandom::Random(long inputSeed){

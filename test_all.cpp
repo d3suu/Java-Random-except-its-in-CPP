@@ -15,6 +15,9 @@ int main(){
 	printf("random float: %f\n", rnd.nextFloat());
 	printf("random double: %f\n", rnd.nextDouble());
 	printf("random gaussian: %f\n", rnd.nextGaussian());
+
+	rnd.Random();
+	printf("first seed (1970 time) = %ld\n", rnd.getSeed());
 	return 0;
 }
 
