@@ -15,6 +15,10 @@ int main(){
 	printf("random float: %f\n", rnd.nextFloat());
 	printf("random double: %f\n", rnd.nextDouble());
 	printf("random gaussian: %f\n", rnd.nextGaussian());
+
+	rnd.Random();
+	printf("first seed (1970 time) = %ld\n", rnd.getSeed());
+	printf("random int (1970 time): %d\n", rnd.nextInt());
 	return 0;
 }
 
@@ -38,6 +42,9 @@ public class RandomTest {
       System.out.println("random float: " + rnd.nextFloat());
       System.out.println("random double: " + rnd.nextDouble());
       System.out.println("random gaussian: " + rnd.nextGaussian());
+      
+      Random rnd_a = new Random();
+      System.out.println("random int (1970 time): " + rnd_a.nextInt());
    }    
 }
 */

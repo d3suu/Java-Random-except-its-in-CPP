@@ -13,8 +13,7 @@ class JavaRandom {
 	public:
 		void Random(void);
 		/* Random(void)
-		Initialises seed value with milliseconds since 1970
-		WORK IN PROGRESS - TODO */
+		Initialises seed value with milliseconds since 1970 */
 
 		void Random(long inputSeed);
 		/* Random(long inputSeed)
