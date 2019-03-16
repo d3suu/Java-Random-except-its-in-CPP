@@ -43,7 +43,12 @@ class JavaRandom {
 		/* nextInt(int n)
 		Returns next pseudorandom int in range of 0 - n */
 
-		//void nextBytes // TODO
+		void nextBytes(char* bytes, int n);
+		/* nextBytes(char* bytes, int n)
+		Puts n random bytes to char array at pointer bytes 
+		
+		WARNING! Remeber to delete after use!
+		WARNING! I don't work properly, fix me, or don't use me! TODO */
 
 		long nextLong(void);
 		/* nextLong(void)

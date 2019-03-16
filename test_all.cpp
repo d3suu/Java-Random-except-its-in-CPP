@@ -9,7 +9,13 @@ int main(){
 	printf("first seed = %ld\n", rnd.getSeed());
 	printf("random int: %d\n", rnd.nextInt());
 	printf("random int (max 100): %d\n", rnd.nextInt(100));
-	//printf("random bytes
+	printf("random bytes: ");
+	char* bytes;
+	rnd.nextBytes(bytes, 5);
+	for(int i = 0; i<5; i++){
+		printf("%c", bytes[i]);
+	}
+	printf("\n");
 	printf("random long: %ld\n", rnd.nextLong());
 	printf("random bool: %s\n", rnd.nextBoolean() ? "true" : "false");
 	printf("random float: %f\n", rnd.nextFloat());
@@ -36,7 +42,9 @@ public class RandomTest {
       // check next int value  
       System.out.println("random int: " + rnd.nextInt());
       System.out.println("random int (max 100): " + rnd.nextInt(100));
-      //System.out.println("random bytes")
+      byte[] Bytes = new byte[5];
+      rnd.nextBytes(Bytes);
+      System.out.println("random bytes: " + Bytes);
       System.out.println("random long: " + rnd.nextLong());
       System.out.println("random bool: " + rnd.nextBoolean());
       System.out.println("random float: " + rnd.nextFloat());
