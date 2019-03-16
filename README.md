@@ -27,6 +27,23 @@ g++ test_all.cpp JavaRandom.cpp -o test_all
 ./test_all
 ```
 
+For speed test, use ```SpeedTest/test.sh``` script
+```
+Java-Random-except-its-in-CPP/speed-test$ ./test.sh
+[!] Building Java test...
+[!] Building C++ test...
+[!] Testing Java time...
+
+real	0m41,680s
+user	0m41,471s
+sys	0m0,040s
+[!] Testing C++ time...
+
+real	0m16,452s
+user	0m16,356s
+sys	0m0,016s
+```
+
 ## Sources
 Java Random class source - [http://developer.classpath.org/doc/java/util/Random-source.html](http://developer.classpath.org/doc/java/util/Random-source.html)<br />
 Java Random class documentation - [https://docs.oracle.com/javase/7/docs/api/java/util/Random.html](https://docs.oracle.com/javase/7/docs/api/java/util/Random.html)
