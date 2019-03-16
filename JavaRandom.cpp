@@ -1,5 +1,6 @@
 #include <chrono> // system_clock::now, time_since_epoch
 #include <math.h> // sqrt, log
+#include <algorithm> // std::min
 
 #include "JavaRandom.hpp"
 
@@ -53,7 +54,36 @@ int JavaRandom::nextInt(int n){
 	return val;
 };
 
-//void JavaRandom::nextBytes //TODO
+void JavaRandom::nextBytes(char* bytes, int n){ // TODO: fix-me plz
+	/*		Old method
+	bytes = new char[n];
+	for(int i = 0; i<n;){
+		for(int rnd = this->nextInt(), n = std::min(n-i, 4); n-- > 0; rnd >>= 8){
+			bytes[i++] = (char)rnd;
+		}
+	}
+	*/
+	
+	///*		New method
+	bytes = new char[n];
+	int random;
+	int max = n & 0xfffffffc; // n & ~0x3
+	for(int i = 0; i < max; i += 4){
+		random = this->next(32);
+		bytes[i] = (char)random;
+		bytes[i+1] = (char)(random >> 8);
+		bytes[i+2] = (char)(random >> 16);
+		bytes[i+3] = (char)(random >> 24);
+	}
+	if(max < n){
+		random = this->next(32);
+		for(int j = max; j < n; j++){
+			bytes[j] = (char)random;
+			random >>= 8;
+		}
+	}
+	//*/
+};
 
 long JavaRandom::nextLong(void){
 	return ((long)this->next(32) << 32) + this->next(32);
