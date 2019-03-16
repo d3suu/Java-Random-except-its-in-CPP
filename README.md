@@ -9,18 +9,39 @@ JavaRandom rnd;
 rnd.setSeed(1234L);
 ```
 
+For more, refer to Java's Random class documentation
+
 ## Development
 All comments about functions are in header file. If something doesnt work, grep files with "TODO", to check if its in development stage.
 
-Unstable files will be probably in "devel" branch.
+```bash
+grep -Rn "TODO" .
+```
+
+Unstable (untested) files are in "devel" branch. See pull requests for current changes.
 
 ## Testing
-Build ```test_all.cpp``` using ```g++ test_all.cpp JavaRandom.cpp -o test_all```, and check its output with Java code inside it.
+Build ```test_all.cpp``` using
+```bash
+g++ test_all.cpp JavaRandom.cpp -o test_all
+./test_all
+```
 
 ## Sources
-Random class source - [http://developer.classpath.org/doc/java/util/Random-source.html](http://developer.classpath.org/doc/java/util/Random-source.html)<br />
-Random class documentation - [https://docs.oracle.com/javase/7/docs/api/java/util/Random.html](https://docs.oracle.com/javase/7/docs/api/java/util/Random.html)
+Java Random class source - [http://developer.classpath.org/doc/java/util/Random-source.html](http://developer.classpath.org/doc/java/util/Random-source.html)<br />
+Java Random class documentation - [https://docs.oracle.com/javase/7/docs/api/java/util/Random.html](https://docs.oracle.com/javase/7/docs/api/java/util/Random.html)
+
+## Known bugs, differences
+### ...and probably unknown bugs too
+ - ```void nextBytes()``` needs two arguments instead of one:
+   - ```char* bytes``` - a pointer to char array
+   - ```int n``` - number of bytes in array
+ - There is no class constructor. ```Random()``` and ```setSeed()``` takes care of that.
+ - There is *probably* bug with ```next()``` function, becouse of unsigned right shift.
+ - JavaRandom has two more functions:
+   - ```long getSeed()``` - returns current seed
+   - ```long getInitSeed()``` - returns initial seed
 
 ## FAQ
 Q: Why tho?<br />
-A: I wanted to port some application from Java to C/C++, but it used Random class. There is probably better solution than this project ¯\\\_(ツ)\_/¯
+A: I wanted to port some application from Java to C/C++, but it used Random class. ¯\\\_(ツ)\_/¯
